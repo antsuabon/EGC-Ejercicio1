@@ -68,7 +68,7 @@ MODULES = [
     'voting',
 ]
 
-BASEURL = 'http://localhost:8000'
+BASEURL = 'https://ej1-egc-antsuabon.herokuapp.com'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -100,6 +100,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'decide.wsgi.application'
 
+APIS = {}
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -158,5 +159,7 @@ try:
 except ImportError:
     print("local_settings.py not found")
 
+    import django_heroku
+    django_heroku.settings(locals())
 
 INSTALLED_APPS = INSTALLED_APPS + MODULES
